@@ -1,3 +1,11 @@
+@extends('layouts.main')
+
+@sections('container')
+     <h1> Halaman About </h1>
+     <h3> {{ $nama }} </h3>
+     <p> {{ $email }} </p>
+     <img src="images/{{ $gambar }}" alt="{{ $nama }}" width="200px">
+@endsection
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,9 +15,6 @@
     <tittle>Diana | About</title>
 </head>
 <body>
-    <h1> Halaman About </h1>
-    <h3> <?php echo $nama; ?> </h3>
-    <p> <?php echo $email; ?> </p> 
-    <img src="images/<?php echo $gambar; ?>" alt="<?php echo $nama; ?>" width="200px">
+
 </body>
 </html>

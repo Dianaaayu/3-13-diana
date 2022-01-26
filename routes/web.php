@@ -18,19 +18,24 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', function() {
-    return view('home');
+    return view('home', [
+        "title" => "Home"
+   ]);
 });
 
 Route::get('/about', function() {
     return view('about', [
+        "title" => "About",
         "nama" => "Diana Ayu Kuatmi",
         "email" => "3103120069@student.smktelkom-pwt.sch.id",
         "gambar" => "nanapooe.jpeg"
     ]);
 });
 
-Route::get('/gallery', function() {
-    return view('gallery');
+Route::get('/contacts', function() {
+    return view('gallery', [
+        "title" => "Gallery"
+    ]);
 });
 
 
