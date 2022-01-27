@@ -38,4 +38,5 @@ Route::get('/contacts', function() {
     ]);
 });
 
+Route::resource('/contacts', ContactController::class);
 
