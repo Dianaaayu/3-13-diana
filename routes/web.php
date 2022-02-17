@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+// use App\Http\Controllers\ContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+
+
 
 Route::get('/', function() {
     return view('home', [
@@ -28,15 +29,15 @@ Route::get('/about', function() {
         "title" => "About",
         "nama" => "Diana Ayu Kuatmi",
         "email" => "3103120069@student.smktelkom-pwt.sch.id",
-        "gambar" => "nanapooe.jpeg"
+        "gambar" => "diana (2).jpeg"
     ]);
 });
 
-Route::get('/contacts', function() {
-    return view('gallery', [
-        "title" => "Gallery"
-    ]);
-});
+// Route::get('/contact', function() {
+//     return view('gallery', [
+//         "title" => "Gallery"
+//     ]);
+// });
 
 Route::resource('/contacts', ContactController::class);
 
