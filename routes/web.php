@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 // use App\Http\Controllers\ContactController;
@@ -19,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function() {
-    return view('home', [
-        "title" => "Home"
+    return view('index', [
+        "title" => "Beranda"
    ]);
 });
 
@@ -29,7 +30,7 @@ Route::get('/about', function() {
         "title" => "About",
         "nama" => "Diana Ayu Kuatmi",
         "email" => "3103120069@student.smktelkom-pwt.sch.id",
-        "gambar" => "diana (2).jpeg"
+        "gambar" => "dianaaa.jpeg"
     ]);
 });
 
@@ -41,3 +42,8 @@ Route::get('/about', function() {
 
 Route::resource('/contacts', ContactController::class);
 
+Auth::routes();
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
