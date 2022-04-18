@@ -34,16 +34,21 @@ Route::get('/about', function() {
     ]);
 });
 
-// Route::get('/contact', function() {
-//     return view('gallery', [
-//         "title" => "Gallery"
-//     ]);
-// });
+ Route::get('/contact', function() {
+    return view('gallery', [
+       "title" => "Gallery"
+   ]);
+ });
 
-Route::resource('/contacts', ContactController::class);
+// Route::resource('/contacts', ContactController::class);
+Route::get('/contacts/create', [ContactHomeController::class, 'create'])->name('contact.create');
+Route::post('/contacts/create', [ContactHomeController::class, 'store'])->name('contact.store');
 
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/contacts/index', [ContactHomeController::class, 'index'])->name('contact.index');
+    Route::get('/contacts/{id}/edit', [ContactController::class, 'edit'])-> name('contacts.edit');
+    Route::post('/contacts/{id}/update', [ContactController::class, 'edit'])-> name('contacts.destroy');
 });
